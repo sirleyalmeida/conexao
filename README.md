@@ -2,7 +2,7 @@
 
 Projeto final do Curso de Análise e Desenvolvimento de Sistemas - Impacta
 
-### Link da Aplicação: [Ocupe - em breve]()
+### Link da Aplicação: [em breve]()
 
 ## Índice
 
