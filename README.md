@@ -2,7 +2,7 @@
 
 Projeto final do Curso de Análise e Desenvolvimento de Sistemas - Impacta
 
-### Link da Aplicação: [em breve]()
+### Link da Aplicação: [Conexao - em breve]()
 
 ## Índice
 
@@ -25,6 +25,14 @@ Projeto final do Curso de Análise e Desenvolvimento de Sistemas - Impacta
   ou
   ````
     npm install
+  ````
+  ### test
+  ```` 
+    yarn test
+  ````
+  ou
+  ````
+    npm test
   ````
   ### build
   ```` 
