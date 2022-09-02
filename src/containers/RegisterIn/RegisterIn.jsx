@@ -4,6 +4,7 @@ import Button from '../../components/base/Button';
 import Input from '../../components/base/Input';
 import Image from '../../components/base/Image';
 import Cta from '../../components/base/Cta';
+import { createMentor } from '../../services/mentor';
 
 const RegisterIn = () => {
   const [inputNameValue, setInputNameValue] = useState('');
@@ -21,7 +22,8 @@ const RegisterIn = () => {
   const clickRegister = (e) => {
     e.preventDefault();
       if(inputNameValue && inputEmailValue && inputPasswordValue) {
-        history.push('/home');
+        createMentor(inputNameValue, inputEmailValue, inputPasswordValue, inputAgeValue,inputCPFValue, inputProfessionValue, inputPraticeAreaValue, inputPraticeTimeValue, inputEducationValue, "mentor");
+        history.push('/');
       } else {
         alert('Preencha todos os campos!');
       }
@@ -58,7 +60,7 @@ const RegisterIn = () => {
         <Input
           label="CPF"
           placeholder="11 caracteres"
-          type="number"
+          type="text"
           onChange= {(e) => setInputCPFValue(e.target.value)}/>
         <Input
           label="Profession"
@@ -90,8 +92,7 @@ const RegisterIn = () => {
           classNameCta="cta__primary"
           text="Voltar ao Login"
           href="/"
-        />
-        
+        /> 
       </form>
     </div>
   )
