@@ -63,22 +63,22 @@ const RegisterIn = () => {
           type="text"
           onChange= {(e) => setInputCPFValue(e.target.value)}/>
         <Input
-          label="Profession"
+          label="Profissão"
           placeholder=""
           type="text"
           onChange= {(e) => setInputProfessionValue(e.target.value)}/>
         <Input
-          label="PraticeArea"
+          label="Área Profissional"
           placeholder=""
           type="text"
           onChange= {(e) => setInputPraticeAreaValue(e.target.value)}/>
         <Input
-          label="PraticeTime"
+          label="Tempo de Profissão"
           placeholder=""
           type="text"
           onChange= {(e) => setInputPraticeTimeValue(e.target.value)}/>
         <Input
-          label="Education"
+          label="Escolaridade"
           placeholder=""
           type="text"
           onChange= {(e) => setInputEducationValue(e.target.value)}/>

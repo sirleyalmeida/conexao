@@ -14,7 +14,7 @@ export const createMentor = (name, email, password, age, cpf, profession, practi
         userType: userType
     })
     .then(function (response) {
-    console.log(response);
+    console.log(response.statusText);
     })
     .catch(function (error) {
     console.log(error);
