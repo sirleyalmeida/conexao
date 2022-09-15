@@ -3,7 +3,7 @@ import React from 'react';
 const Footer = () => {
   return (
     <nav className="footer__list">
-     <p>Desenvolvido por Rosa | Almeida | Camillo 2022</p>
+     <p>Desenvolvido por Rosa | Almeida | Camillo para Impacta 2022</p>
     </nav>
   );
 }
