@@ -1,15 +1,15 @@
-import RegisterIn from '../../containers/RegisterIn';
 import NavBar from '../../containers/Navbar';
 import Footer from '../../containers/Footer';
-
+import RegisterInMentor from '../../containers/RegisterInMentor';
+import RegisterInMentored from '../../containers/RegisterInMentored';
 
 const Regsiter = () => {
-
-  return (   
+  const isMentor = false; //it can be on context got from response
+  return (    
     <>
       <NavBar />
       <div className="container container__login">
-        <RegisterIn />
+        {isMentor ? <RegisterInMentor/> :  <RegisterInMentored/> }
       </div>
       <Footer />
     </>
