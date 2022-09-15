@@ -21,4 +21,12 @@
     margin-right: 12px;
     font-size: 18px;
   }
+  &__navbar {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-right: 18px;
+    color: white;
+    font-size: 11px;
+  }
 }

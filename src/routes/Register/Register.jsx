@@ -1,11 +1,18 @@
 import RegisterIn from '../../containers/RegisterIn';
+import NavBar from '../../containers/Navbar';
+import Footer from '../../containers/Footer';
+
 
 const Regsiter = () => {
 
-  return (    
-    <div className="container container__login">
-      <RegisterIn/>
-    </div>
+  return (   
+    <>
+      <NavBar />
+      <div className="container container__login">
+        <RegisterIn />
+      </div>
+      <Footer />
+    </>
   )
 }
 

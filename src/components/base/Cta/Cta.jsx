@@ -9,7 +9,7 @@ const Cta = (props) => {
       onClick={props.onClick}>
       <i className={props.icon}></i>
       <p>{props.text}</p>
-      <p>{props.text2}</p>
+      {props.text2 &&<p>{props.text2}</p>}
     </Link>
     )
   }
