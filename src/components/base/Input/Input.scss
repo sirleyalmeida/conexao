@@ -27,11 +27,14 @@
     }
 
   }
-  
+
   &__itself {
-    margin-top:4px;
+    margin-top: 4px;
     padding: 0 20px 0 10px;
     height: 40px;
+  }
+
+  &__area, &__itself {
     border: 1px solid $blue;
     border-radius: 8px;
     color: $graffiti-text;
@@ -43,6 +46,6 @@
       color: $text-block-gray;
       font-weight: 100;
     }
-  } 
+  }
   
 }

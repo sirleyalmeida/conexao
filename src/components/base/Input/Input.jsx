@@ -6,7 +6,18 @@ const Input = (props) => {
       className="input__label"
       htmlFor={props.id}>
       <span>{props.label}</span>
-      <input
+      {props.textarea ?  
+        <textarea
+          className="input__area"
+          id={props.id}
+          value={props.value}
+          aria-required="true"
+          placeholder={props.placeholder} 
+          onChange={props.onChange}
+          name={props.name} 
+          rows={6}
+        /> :
+        <input
           className="input__itself"
           type={props.type}
           id={props.id}
@@ -15,7 +26,8 @@ const Input = (props) => {
           placeholder={props.placeholder} 
           onChange={props.onChange}
           name={props.name}
-      />
+        />
+       }
       <i className={props.icon}></i>
     </label> 
   )

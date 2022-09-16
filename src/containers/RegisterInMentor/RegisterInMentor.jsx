@@ -6,7 +6,7 @@ import Image from '../../components/base/Image';
 import Cta from '../../components/base/Cta';
 import { createMentor } from '../../services/mentor';
 
-const RegisterIn = () => {
+const RegisterInMentor = () => {
   const [inputNameValue, setInputNameValue] = useState('');
   const [inputEmailValue, setInputEmailValue] = useState('');
   const [inputPasswordValue, setInputPasswordValue] = useState('');
@@ -22,7 +22,9 @@ const RegisterIn = () => {
   const clickRegister = (e) => {
     e.preventDefault();
       if(inputNameValue && inputEmailValue && inputPasswordValue) {
-        createMentor(inputNameValue, inputEmailValue, inputPasswordValue, inputAgeValue,inputCPFValue, inputProfessionValue, inputPraticeAreaValue, inputPraticeTimeValue, inputEducationValue, "mentor");
+        createMentor(inputNameValue, inputEmailValue, 
+          inputPasswordValue, inputAgeValue, inputCPFValue, inputProfessionValue, 
+          inputPraticeAreaValue, inputPraticeTimeValue, inputEducationValue, "mentor");
         history.push('/');
       } else {
         alert('Preencha todos os campos!');
@@ -98,4 +100,4 @@ const RegisterIn = () => {
   )
 }
 
-export default RegisterIn;
+export default RegisterInMentor;

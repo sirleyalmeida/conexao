@@ -13,6 +13,13 @@ h1, h2, h3, h4, h5, h6, p {
   padding: 0;
 }
 
+textarea {
+  font-family: 'Roboto', sans-serif;
+  font-size: 15px;
+  padding: 20px;
+  resize: none;
+}
+
 a {
   display: block;
   color: initial;

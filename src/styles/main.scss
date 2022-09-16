@@ -2,9 +2,13 @@
 @import '../styles/mixins';
 
 @import '../containers/App/App.scss';
+
 @import '../containers/Navbar/Navbar.scss';
 @import '../containers/Footer/Footer.scss';
-@import '../containers/RegisterIn/RegisterIn.scss';
+
+@import '../containers/RegisterInMentor/RegisterInMentor.scss';
+@import '../containers/FeedbackMentor/FeedbackMentor.scss';
+
 
 @import '../components/base/Button/Button.scss';
 @import '../components/base/Image/Image.scss';
