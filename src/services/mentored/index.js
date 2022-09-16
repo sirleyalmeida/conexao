@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const createMentored = (name, email, password, age, cpf, profession, fieldOfInterest, mentorshipGoal, userType ) => {
+export const createMentored = (name, email, password, age, cpf, profession, interestArea, mentorshipGoal, userType ) => {
 	axios.post('http://localhost:3333/create-mentored', {
 		name: name,
 		email: email,
@@ -8,7 +8,7 @@ export const createMentored = (name, email, password, age, cpf, profession, fiel
 		age: age,
 		document: cpf,
 		profession: profession,
-		fieldOfInterest: fieldOfInterest,
+		interestArea: interestArea,
 		mentorshipGoal: mentorshipGoal,
 		userType: userType
 	})

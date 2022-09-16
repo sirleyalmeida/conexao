@@ -13,7 +13,7 @@ const RegisterInMentored = () => {
   const [inputAgeValue, setInputAgeValue] = useState('');
   const [inputCPFValue, setInputCPFValue] = useState('');
   const [inputProfessionValue, setInputProfessionValue] = useState('');
-  const [inputfieldOfInterestValue, setInputFieldOfInterestValue] = useState('');
+  const [inputInterestAreaValue, setInputInterestAreaValue] = useState('');
   const [inputMentorshipGoalValue, setInputMentorshipGoalValue] = useState('');
 
   let history = useNavigate ();
@@ -23,7 +23,7 @@ const RegisterInMentored = () => {
       if(inputNameValue && inputEmailValue && inputPasswordValue) {
         createMentored(inputNameValue, 
           inputEmailValue, inputPasswordValue, inputAgeValue, inputCPFValue, inputProfessionValue, 
-          inputfieldOfInterestValue, inputMentorshipGoalValue, "mentored");
+          inputInterestAreaValue, inputMentorshipGoalValue, "mentored");
         history.push('/');
       } else {
         alert('Preencha todos os campos!');
@@ -72,7 +72,7 @@ const RegisterInMentored = () => {
           label="Área de Interesse"
           placeholder=""
           type="text"
-          onChange= {(e) => setInputFieldOfInterestValue(e.target.value)}/>
+          onChange= {(e) => setInputInterestAreaValue(e.target.value)}/>
         <Input
           label="Objetivo da mentoria"
           placeholder="Descreva seus objetivos com a mentoria"
