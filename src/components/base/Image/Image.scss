@@ -1,13 +1,13 @@
 .image {
   &__navbar-logo {
-    height: 35px;
+    height: 95px;
     & img {
       height: 100%;
       width: auto;
     }
   }
   &__banner {
-    width: 100%;
+    width: 40%;
     &-home {
       width: 60%;
       display: flex;
@@ -20,7 +20,7 @@
       }
     }
     @media (min-width: 768px){
-      width: 50%;
+      width: 25%;
     }
   }
   &__photo-mentor {

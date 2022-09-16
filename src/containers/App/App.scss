@@ -39,7 +39,8 @@ img {
 .container {
   margin: 0 auto;
   width: 80%;
-  height: calc(100vh - 140px);
+  height: calc(100% - 140px);
+  padding: 30px 0;
   @media (min-width: 768px){
     width: 600px;
   }
@@ -48,10 +49,10 @@ img {
   }
 
   &__login {
-    height: 100vh;
+    height: 100%;
   }
 
   &__home {
-    height: calc(100vh - 60px);
+    height: calc(100% - 60px);
   }
 }

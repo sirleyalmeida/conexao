@@ -1,0 +1,29 @@
+.navbar {
+  height: 60px;
+  background-color: $orange;
+  display: flex;
+  justify-content: center;
+  
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    
+    @media (min-width: 769px){
+      width: 600px;
+    }
+    
+    @media (min-width: 1024px){
+      width: 1000px;
+    }
+  }
+
+  &__icons {
+    display: flex;
+  }
+  i{
+    color: white;
+    font-size: 20px;
+  }
+}
