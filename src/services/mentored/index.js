@@ -13,9 +13,9 @@ export const createMentored = (name, email, password, age, cpf, profession, fiel
 		userType: userType
 	})
 	.then(function (response) {
-			console.log(response.statusText);
+		console.log(response.statusText);
 	})
 	.catch(function (error) {
-			console.log(error);
+		console.log(error);
 	});
 };

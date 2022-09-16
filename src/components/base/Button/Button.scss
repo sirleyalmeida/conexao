@@ -12,6 +12,10 @@
   &__primary {
     margin-top: 26px;
     font-size: 18px;
+    &--closer {
+      margin-top: 10px;
+      font-size: 18px;
+    }
   }
   
   &__secondary {
@@ -51,6 +55,15 @@
           color: $text-block-gray;
         }
     }
+    }
+  }
+
+  &__tertiary {
+    margin-top: 10px;
+    font-size: 18px;
+    background-color: $success-green;
+    &:hover {
+      background-color: lighten($color: $success-green, $amount: 15);
     }
   }
 }

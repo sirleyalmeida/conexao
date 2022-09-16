@@ -6,7 +6,7 @@ import Image from '../../components/base/Image';
 import Cta from '../../components/base/Cta';
 import { createMentored } from '../../services/mentored';
 
-const RegisterIn = () => {
+const RegisterInMentored = () => {
   const [inputNameValue, setInputNameValue] = useState('');
   const [inputEmailValue, setInputEmailValue] = useState('');
   const [inputPasswordValue, setInputPasswordValue] = useState('');
@@ -94,4 +94,4 @@ const RegisterIn = () => {
   )
 }
 
-export default RegisterIn;
+export default RegisterInMentored;

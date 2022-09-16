@@ -20,3 +20,13 @@ export const createMentor = (name, email, password, age, cpf, profession, practi
 		console.log(error);
 	});
 };
+
+export const listMatches = () =>
+	axios.get('https://jsonplaceholder.typicode.com/posts')
+	.then(function (response) {
+		return response
+	})
+	.catch(function (error) {
+		console.log(error);
+	});
+
