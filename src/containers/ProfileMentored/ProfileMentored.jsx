@@ -4,41 +4,40 @@ import Button from '../../components/base/Button';
 import Input from '../../components/base/Input';
 import Image from '../../components/base/Image';
 import Cta from '../../components/base/Cta';
-import { createMentor } from '../../services/mentor';
+import { createMentored } from '../../services/mentored';
 
-const RegisterInMentor = () => {
+const RegisterInMentored = () => {
   const [inputNameValue, setInputNameValue] = useState('');
   const [inputEmailValue, setInputEmailValue] = useState('');
   const [inputPasswordValue, setInputPasswordValue] = useState('');
   const [inputAgeValue, setInputAgeValue] = useState('');
   const [inputCPFValue, setInputCPFValue] = useState('');
   const [inputProfessionValue, setInputProfessionValue] = useState('');
-  const [inputPraticeAreaValue, setInputPraticeAreaValue] = useState('');
-  const [inputPraticeTimeValue, setInputPraticeTimeValue] = useState('');
-  const [inputEducationValue, setInputEducationValue] = useState('');
+  const [inputInterestAreaValue, setInputInterestAreaValue] = useState('');
+  const [inputMentorshipGoalValue, setInputMentorshipGoalValue] = useState('');
 
   let history = useNavigate ();
 
   const clickRegister = (e) => {
     e.preventDefault();
       if(inputNameValue && inputEmailValue && inputPasswordValue) {
-        createMentor(inputNameValue, inputEmailValue, 
-          inputPasswordValue, inputAgeValue, inputCPFValue, inputProfessionValue, 
-          inputPraticeAreaValue, inputPraticeTimeValue, inputEducationValue, "mentor");
-        history.push('/');
+        createMentored(inputNameValue, 
+          inputEmailValue, inputPasswordValue, inputAgeValue, inputCPFValue, inputProfessionValue, 
+          inputInterestAreaValue, inputMentorshipGoalValue, "mentored");
+        history('/');
       } else {
         alert('Preencha todos os campos!');
       }
   }
 
   return (    
-    <div className="sign__group">
+    <div className="register__group">
       <Image
         classNameImage="image__banner"
-        src="/logo2x.png"
+        src="/logo.png"
         alt="Banner Login"
       />
-      <form className="sign__form">
+      <form className="register__form">
         <Input
           label="Nome"
           placeholder="nome"
@@ -70,34 +69,29 @@ const RegisterInMentor = () => {
           type="text"
           onChange= {(e) => setInputProfessionValue(e.target.value)}/>
         <Input
-          label="Área Profissional"
+          label="Área de Interesse"
           placeholder=""
           type="text"
-          onChange= {(e) => setInputPraticeAreaValue(e.target.value)}/>
+          onChange= {(e) => setInputInterestAreaValue(e.target.value)}/>
         <Input
-          label="Tempo de Profissão"
-          placeholder=""
-          type="text"
-          onChange= {(e) => setInputPraticeTimeValue(e.target.value)}/>
-        <Input
-          label="Escolaridade"
-          placeholder=""
-          type="text"
-          onChange= {(e) => setInputEducationValue(e.target.value)}/>
+          label="Objetivo da mentoria"
+          placeholder="Descreva seus objetivos com a mentoria"
+          onChange= {(e) => setInputMentorshipGoalValue(e.target.value)}
+          textarea/>
         <Button 
           type="submit"
           classNameBtn="btn__primary"
           text="Cadastar"
           onClick={(e) => clickRegister(e)}
         />
-        <Cta
+        {/* <Cta
           classNameCta="cta__primary"
           text="Voltar ao Login"
           href="/"
-        /> 
+        />  */}
       </form>
     </div>
   )
 }
 
-export default RegisterInMentor;
+export default RegisterInMentored;

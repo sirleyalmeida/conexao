@@ -1,0 +1,15 @@
+.radio {
+    display: flex;
+    align-items: center;
+
+    &__label {
+        color: $blue;
+        font-size: 16px;
+        font-weight: 700;
+    }
+    &__button {
+        width: 22px;
+        height: 22px;
+        border: 2px solid #999;
+    }
+}

@@ -1,0 +1,27 @@
+.sign {
+  &__group {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__form {
+    width: 100%;
+    @media (min-width: 768px){
+      width: 50%;
+    }
+
+    &__radio {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+      .radio:first-child {
+        margin-right: 40px;
+      }
+    }
+  }
+
+  
+}

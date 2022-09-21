@@ -5,13 +5,14 @@
 
 @import '../containers/Navbar/Navbar.scss';
 @import '../containers/Footer/Footer.scss';
-
-@import '../containers/RegisterInMentor/RegisterInMentor.scss';
+@import '../containers/ProfileMentor/ProfileMentor.scss';
 @import '../containers/FeedbackMentor/FeedbackMentor.scss';
+@import '../containers/RegisterIn/RegisterIn.scss';
 
 
 @import '../components/base/Button/Button.scss';
 @import '../components/base/Image/Image.scss';
 @import '../components/base/Input/Input.scss';
+@import '../components/base/Radio/Radio.scss';
 
 @import '../components/base/Cta/Cta.scss';
