@@ -13,7 +13,6 @@ const RegisterIn = () => {
   const [inputEmailValue, setInputEmailValue] = useState('');
   const [inputPasswordValue, setInputPasswordValue] = useState('');
   const [inputUserType, setInputUserTypeValue] = useState('');
-  const [mentorados, setMentorados] = useState([]);
   let history = useNavigate();
 
   const handleRegisterIn = async (e) => {

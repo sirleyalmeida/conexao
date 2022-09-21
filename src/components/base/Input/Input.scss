@@ -6,7 +6,11 @@
     color: $blue;
     font-size: 14px;
     position: relative;
-    
+
+    &-disabled {
+      color: $graffiti-text;
+    }
+
     & i.fas {
       position: absolute;
       top: 10px;
@@ -45,6 +49,15 @@
     ::placeholder{
       color: $text-block-gray;
       font-weight: 100;
+    }
+
+    &:disabled {
+      border: 1px solid $text-block-gray;
+      border-radius: 8px;
+      color: $graffiti-text;
+      font-weight: 600;
+      background-color: transparent;
+      box-sizing: border-box;
     }
   }
   

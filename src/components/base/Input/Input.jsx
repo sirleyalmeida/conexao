@@ -3,7 +3,7 @@ import React from 'react';
 const Input = (props) => {
   return (
     <label
-      className="input__label"
+      className={`input__label ${props.disabled && 'input__label-disabled'}`}
       htmlFor={props.id}>
       <span>{props.label}</span>
       {props.textarea ?  
@@ -26,6 +26,7 @@ const Input = (props) => {
           placeholder={props.placeholder} 
           onChange={props.onChange}
           name={props.name}
+          disabled={props.disabled ? true : false}
         />
        }
       <i className={props.icon}></i>

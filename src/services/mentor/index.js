@@ -23,3 +23,12 @@ export const listMatches = () =>
 		console.log(error);
 	});
 
+export const fetchMentor = (uuid) => 
+	axios.get(`http://localhost:3333/mentor/${uuid}`)
+	.then(function (response) {
+		return response
+	})
+	.catch(function (error) {
+		console.log(error);
+	});
+
