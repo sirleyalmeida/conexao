@@ -4,7 +4,8 @@ import ProfileMentor from '../../containers/ProfileMentor';
 import ProfileMentored from '../../containers/ProfileMentored';
 
 const Profile = () => {
-  const isMentor = false; //it can be on context got from response
+  const isMentor = sessionStorage.getItem("type") === 'mentor' ? true : false;
+
   return (    
     <>
       <NavBar />

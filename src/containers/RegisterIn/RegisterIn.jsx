@@ -21,17 +21,13 @@ const RegisterIn = () => {
       if(inputNameValue && inputEmailValue && inputPasswordValue && inputUserType) {
         let hasResponse = ''
         if(inputUserType === 'mentor') {
-          await createMentor(inputNameValue, inputEmailValue,inputPasswordValue, "mentor");
-          history('/profile');
+          hasResponse = await createMentor(inputNameValue, inputEmailValue,inputPasswordValue, "mentor");
         } else {
-          await createMentored(inputNameValue, inputEmailValue,inputPasswordValue, "mentored");
-          history('/profile');
+          hasResponse = await createMentored(inputNameValue, inputEmailValue,inputPasswordValue, "mentored");
         }
-        
-        // console.log(hasResponse.data.uuid)
-        // if(hasResponse.status === 200)
-       
-
+        sessionStorage.setItem("logged", hasResponse.data.uuid);
+        sessionStorage.setItem("type", hasResponse.data.userType);
+        history('/profile');
       } else {
         alert('Preencha todos os campos!');
       }
