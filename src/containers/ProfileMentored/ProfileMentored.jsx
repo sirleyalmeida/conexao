@@ -1,10 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate  } from "react-router-dom";
 import Button from '../../components/base/Button';
 import Input from '../../components/base/Input';
-import Image from '../../components/base/Image';
-import Cta from '../../components/base/Cta';
-import { createMentored } from '../../services/mentored';
+import { createMentored, fetchMentored } from '../../services/mentored';
 
 const RegisterInMentored = () => {
   const [inputNameValue, setInputNameValue] = useState('');
@@ -15,44 +13,50 @@ const RegisterInMentored = () => {
   const [inputProfessionValue, setInputProfessionValue] = useState('');
   const [inputInterestAreaValue, setInputInterestAreaValue] = useState('');
   const [inputMentorshipGoalValue, setInputMentorshipGoalValue] = useState('');
+  const [userData, setUserData] = useState({});
 
   let history = useNavigate ();
-
   const clickRegister = (e) => {
-    e.preventDefault();
-      if(inputNameValue && inputEmailValue && inputPasswordValue) {
-        createMentored(inputNameValue, 
-          inputEmailValue, inputPasswordValue, inputAgeValue, inputCPFValue, inputProfessionValue, 
-          inputInterestAreaValue, inputMentorshipGoalValue, "mentored");
-        history.push('/');
-      } else {
-        alert('Preencha todos os campos!');
-      }
+    console.log('click')
   }
 
+  useEffect(() => {
+    const fetchUserData = async() => {
+      const uuid = sessionStorage.getItem("logged");
+      const infos = await fetchMentored(uuid);
+      setUserData(infos.data);
+    }
+    fetchUserData();
+  }, [])
+  
+
   return (    
-    <div className="sign__group">
-      <Image
-        classNameImage="image__banner"
-        src="/logo.png"
-        alt="Banner Login"
-      />
-      <form className="sign__form">
+    <div className="register__group">
+      <form className="register__form">
         <Input
           label="Nome"
+          value={userData.name}
           placeholder="nome"
           type="text"
-          onChange= {(e) => setInputNameValue(e.target.value)}/>
+          onChange= {(e) => setInputNameValue(e.target.value)}
+          disabled
+          />
         <Input
           label="E-mail"
+          value={userData.email}
           placeholder="seuemail@exemplo.com"
           type="email"
-          onChange= {(e) => setInputEmailValue(e.target.value)}/>
+          onChange= {(e) => setInputEmailValue(e.target.value)}
+          disabled
+          />
         <Input
           label="Senha"
+          value={userData.password}
           placeholder="mínimo 6 caracteres"
           type="password"
-          onChange= {(e) => setInputPasswordValue(e.target.value)}/>
+          onChange= {(e) => setInputPasswordValue(e.target.value)}
+          disabled
+          />
         <Input
           label="Idade"
           placeholder="mínimo 2 caracteres"
@@ -84,11 +88,6 @@ const RegisterInMentored = () => {
           text="Cadastar"
           onClick={(e) => clickRegister(e)}
         />
-        <Cta
-          classNameCta="cta__primary"
-          text="Voltar ao Login"
-          href="/"
-        /> 
       </form>
     </div>
   )

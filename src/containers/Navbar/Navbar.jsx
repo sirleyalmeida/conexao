@@ -15,15 +15,15 @@ const Navbar = () => {
         />
         <div className="navbar__icons">
           <Cta
-            href="/"
+            href="/profile"
             icon="fas fa-user-circle"
             text="Perfil"
             classNameCta="cta__navbar"
           />
           <Cta 
-            href="/"
+            href="/mentorship"
             icon="fas fa-solid fa-comments"
-            text="Feedback"
+            text="Conectar"
             classNameCta="cta__navbar"
           />
           <Cta 
