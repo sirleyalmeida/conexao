@@ -16,6 +16,9 @@ const Input = (props) => {
           onChange={props.onChange}
           name={props.name} 
           rows={6}
+          maxLength="250"
+          disabled={props.disabled ? true : false}
+          required={props.required ? true : false}
         /> :
         <input
           className="input__itself"

@@ -44,8 +44,8 @@ const RegisterInMentor = () => {
     const fetchUserData = async() => {
       const uuid = sessionStorage.getItem("logged");
       const infos = await fetchMentor(uuid);
-      if(infos.data) {
-        setUserData(infos.data);
+      setUserData(infos.data);
+      if(infos?.data.practiceArea) {
         setHasFilled(true)
       }
     }
@@ -75,7 +75,7 @@ const RegisterInMentor = () => {
           type="password"
           value={userData.password ? userData.password : ''}
           disabled
-          />
+        />
         <Input
           label="Idade"
           placeholder="mínimo 2 caracteres"
@@ -84,7 +84,7 @@ const RegisterInMentor = () => {
           value={userData.age ? userData.age : inputAgeValue}
           disabled={userData.age ? true : false}
           required
-          />
+        />
         <Input
           label="CPF"
           placeholder="11 caracteres"
@@ -93,7 +93,7 @@ const RegisterInMentor = () => {
           value={userData.document ? userData.document : inputCPFValue}
           disabled={userData.document ? true : false}   
           required       
-          />
+        />
         <Input
           label="Profissão"
           placeholder=""
@@ -102,7 +102,7 @@ const RegisterInMentor = () => {
           value={userData.profession ? userData.profession : inputProfessionValue}
           disabled={userData.profession ? true : false}   
           required       
-          />
+        />
         <Input
           label="Área Profissional"
           placeholder=""
@@ -111,7 +111,7 @@ const RegisterInMentor = () => {
           value={userData.practiceArea ? userData.practiceArea : inputPraticeAreaValue}
           disabled={userData.practiceArea ? true : false} 
           required
-          />
+        />
         <Input
           label="Tempo de Profissão"
           placeholder=""
@@ -120,7 +120,7 @@ const RegisterInMentor = () => {
           value={userData.practiceTime ? userData.practiceTime : inputPraticeTimeValue}
           disabled={userData.practiceTime ? true : false}
           required
-          />
+        />
         <Input
           label="Escolaridade"
           placeholder=""
@@ -129,7 +129,7 @@ const RegisterInMentor = () => {
           value={userData.education ? userData.education : inputEducationValue}
           disabled={userData.education ? true : false}
           required
-          />
+        />
         <Button 
           type="submit"
           classNameBtn="btn__primary"
