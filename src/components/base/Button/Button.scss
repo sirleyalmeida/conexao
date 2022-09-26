@@ -8,6 +8,10 @@
   &:hover {
     background-color: lighten($color: $hover-blue, $amount: 0);
   }
+  &:disabled {
+    background-color: $blue-nuance;
+    pointer-events: none;
+  }
   
   &__primary {
     margin-top: 26px;
