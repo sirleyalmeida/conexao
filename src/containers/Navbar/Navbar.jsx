@@ -23,7 +23,7 @@ const Navbar = () => {
           <Cta 
             href="/mentorship"
             icon="fas fa-solid fa-comments"
-            text="Conectar"
+            text="Feedback"
             classNameCta="cta__navbar"
           />
           <Cta 
