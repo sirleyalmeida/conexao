@@ -32,3 +32,23 @@ export const fetchMentor = (uuid) =>
 		console.log(error);
 	});
 
+export const updateMentor = ({name, email, password, age, document, profession, practiceArea, practiceTime, education, userType}, uuid) => 
+	axios.put(`http://localhost:3333/mentor/${uuid}`, {
+		name: name, 
+		email: email, 
+		password: password,
+		age: age, 
+		document: document, 
+		profession: profession, 
+		practiceArea: practiceArea, 
+		practiceTime: practiceTime, 
+		education: education,
+		userType: userType
+	})
+	.then(function (response) {
+		return response
+	})
+	.catch(function (error) {
+		console.log(error);
+	});
+

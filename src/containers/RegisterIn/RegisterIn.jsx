@@ -27,8 +27,6 @@ const RegisterIn = () => {
         sessionStorage.setItem("logged", hasResponse.data.uuid);
         sessionStorage.setItem("type", hasResponse.data.userType);
         history('/profile');
-      } else {
-        alert('Preencha todos os campos!');
       }
   }
   
@@ -39,25 +37,30 @@ const RegisterIn = () => {
         src="/logo2x.png"
         alt="Banner Login"
       />
-      <form className="sign__form">
-      <Input
+      <form onSubmit={(e) => handleRegisterIn(e)} className="sign__form">
+        <Input
           label="Nome"
           placeholder="seu nome"
           type="name"
           name="nome"
-          onChange= {(e) => setInputNameValue(e.target.value)}/>
+          onChange= {(e) => setInputNameValue(e.target.value)}
+          required
+          />
         <Input
           label="E-mail"
           placeholder="seuemail@exemplo.com"
           type="email"
           name="email"
-          onChange= {(e) => setInputEmailValue(e.target.value)}/>
+          onChange= {(e) => setInputEmailValue(e.target.value)}
+          required
+          />
         <Input
           label="Senha"
           placeholder="mínimo 6 caracteres"
           type="password"
           name="senha"
           onChange= {(e) => setInputPasswordValue(e.target.value)}
+          required
         />
         <div className="sign__form__radio">
           <Radio
@@ -65,6 +68,7 @@ const RegisterIn = () => {
               id="mentor"
               name="user_type"
               onChange= {(e) => setInputUserTypeValue(e.target.value)}
+              required
             />
           <Radio
             label="Mentorado"
@@ -77,7 +81,6 @@ const RegisterIn = () => {
           type="submit"
           classNameBtn="btn__primary"
           text="Cadastrar"
-          onClick={(e) => handleRegisterIn(e)}
         />
         <Cta
           classNameCta="cta__primary"

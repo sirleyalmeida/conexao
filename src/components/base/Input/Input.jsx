@@ -27,6 +27,7 @@ const Input = (props) => {
           onChange={props.onChange}
           name={props.name}
           disabled={props.disabled ? true : false}
+          required={props.required ? true : false}
         />
        }
       <i className={props.icon}></i>

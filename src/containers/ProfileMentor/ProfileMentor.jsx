@@ -2,98 +2,139 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate  } from "react-router-dom";
 import Button from '../../components/base/Button';
 import Input from '../../components/base/Input';
-import { createMentor, fetchMentor } from '../../services/mentor';
+import { fetchMentor, updateMentor } from '../../services/mentor';
 
 const RegisterInMentor = () => {
-  const [inputNameValue, setInputNameValue] = useState('');
-  const [inputEmailValue, setInputEmailValue] = useState('');
-  const [inputPasswordValue, setInputPasswordValue] = useState('');
-  const [inputAgeValue, setInputAgeValue] = useState('');
-  const [inputCPFValue, setInputCPFValue] = useState('');
-  const [inputProfessionValue, setInputProfessionValue] = useState('');
-  const [inputPraticeAreaValue, setInputPraticeAreaValue] = useState('');
-  const [inputPraticeTimeValue, setInputPraticeTimeValue] = useState('');
-  const [inputEducationValue, setInputEducationValue] = useState('');
   const [userData, setUserData] = useState({});
-
-
+  const [inputAgeValue, setInputAgeValue] = useState(userData.age ? userData.age : '');
+  const [inputCPFValue, setInputCPFValue] = useState(userData.document ? userData.document : '');
+  const [inputProfessionValue, setInputProfessionValue] = useState(userData.profession ? userData.profession : '');
+  const [inputPraticeAreaValue, setInputPraticeAreaValue] = useState(userData.practiceArea ? userData.practiceArea : '');
+  const [inputPraticeTimeValue, setInputPraticeTimeValue] = useState(userData.practiceTime ? userData.practiceTime : '');
+  const [inputEducationValue, setInputEducationValue] = useState(userData.education ? userData.education : '');
+  const [hasFilled, setHasFilled] = useState(false)
   let history = useNavigate ();
 
-  const clickRegister = (e) => {
-   console.log('click')
+  const handleUpdateMentorData = async(e) => {
+    e.preventDefault();
+    const uuid = sessionStorage.getItem("logged");
+    const userType = sessionStorage.getItem("type");
+    const mentorData = {
+      name: userData.name,
+      email: userData.email, 
+      password: userData.password,
+      age: Number(inputAgeValue), 
+      document:inputCPFValue, 
+      profession: inputProfessionValue, 
+      practiceArea: inputPraticeAreaValue, 
+      practiceTime: inputPraticeTimeValue, 
+      education: inputEducationValue,
+      userType
+    }
+    if(inputProfessionValue && inputPraticeAreaValue && inputPraticeTimeValue && inputEducationValue) {
+      const saved = await updateMentor(mentorData, uuid);
+      if(saved.status === 200) {
+        history('/feedback');
+        setHasFilled(true)
+      }
+    }
   }
 
   useEffect(() => {
     const fetchUserData = async() => {
       const uuid = sessionStorage.getItem("logged");
       const infos = await fetchMentor(uuid);
-      setUserData(infos.data);
+      if(infos.data) {
+        setUserData(infos.data);
+        setHasFilled(true)
+      }
     }
     fetchUserData();
   }, [])
 
   return (    
     <div className="register__group">
-      <form className="register__form">
+      <form onSubmit={(e) => handleUpdateMentorData(e)} className="register__form">
         <Input
           label="Nome"
-          value={userData.name}
           placeholder="nome"
           type="text"
-          onChange= {(e) => setInputNameValue(e.target.value)}
+          value={userData.name ? userData.name : ''}
           disabled
           />
         <Input
           label="E-mail"
-          value={userData.email}
           placeholder="seuemail@exemplo.com"
           type="email"
-          onChange= {(e) => setInputEmailValue(e.target.value)}
+          value={userData.email ? userData.email : ''}
           disabled
           />
         <Input
           label="Senha"
-          value={userData.password}
           placeholder="mínimo 6 caracteres"
           type="password"
-          onChange= {(e) => setInputPasswordValue(e.target.value)}
+          value={userData.password ? userData.password : ''}
           disabled
           />
         <Input
           label="Idade"
           placeholder="mínimo 2 caracteres"
           type="number"
-          onChange= {(e) => setInputAgeValue(e.target.value)}/>
+          onChange = {(e) => setInputAgeValue(e.target.value)}
+          value={userData.age ? userData.age : inputAgeValue}
+          disabled={userData.age ? true : false}
+          required
+          />
         <Input
           label="CPF"
           placeholder="11 caracteres"
           type="text"
-          onChange= {(e) => setInputCPFValue(e.target.value)}/>
+          onChange = {(e) => setInputCPFValue(e.target.value)}
+          value={userData.document ? userData.document : inputCPFValue}
+          disabled={userData.document ? true : false}   
+          required       
+          />
         <Input
           label="Profissão"
           placeholder=""
           type="text"
-          onChange= {(e) => setInputProfessionValue(e.target.value)}/>
+          onChange = {(e) => setInputProfessionValue(e.target.value)}
+          value={userData.profession ? userData.profession : inputProfessionValue}
+          disabled={userData.profession ? true : false}   
+          required       
+          />
         <Input
           label="Área Profissional"
           placeholder=""
           type="text"
-          onChange= {(e) => setInputPraticeAreaValue(e.target.value)}/>
+          onChange = {(e) => setInputPraticeAreaValue(e.target.value)}
+          value={userData.practiceArea ? userData.practiceArea : inputPraticeAreaValue}
+          disabled={userData.practiceArea ? true : false} 
+          required
+          />
         <Input
           label="Tempo de Profissão"
           placeholder=""
           type="text"
-          onChange= {(e) => setInputPraticeTimeValue(e.target.value)}/>
+          onChange = {(e) => setInputPraticeTimeValue(e.target.value)}
+          value={userData.practiceTime ? userData.practiceTime : inputPraticeTimeValue}
+          disabled={userData.practiceTime ? true : false}
+          required
+          />
         <Input
           label="Escolaridade"
           placeholder=""
           type="text"
-          onChange= {(e) => setInputEducationValue(e.target.value)}/>
+          onChange = {(e) => setInputEducationValue(e.target.value)}
+          value={userData.education ? userData.education : inputEducationValue}
+          disabled={userData.education ? true : false}
+          required
+          />
         <Button 
           type="submit"
           classNameBtn="btn__primary"
           text="Cadastar"
-          onClick={(e) => clickRegister(e)}
+          disabled={hasFilled}
         />
       </form>
     </div>

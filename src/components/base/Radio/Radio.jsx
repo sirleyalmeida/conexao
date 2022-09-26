@@ -11,6 +11,7 @@ const Radio = (props) => {
 				value={props.label.toLowerCase()}
 				name={props.name}
 				onChange={props.onChange}
+				required={props.required ? true : false}
 			/>
 		</div>
   )
