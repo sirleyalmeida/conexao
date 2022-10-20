@@ -1,0 +1,22 @@
+[
+	{
+	  "code": 20,
+	  "name": "6 a 12 meses"
+	},
+	{
+	  "code": 21,
+	  "name": "1 a 3 anos"
+	},
+	{
+	  "code": 22,
+	  "name": "3 a 5 anos"
+	},
+	{
+	  "code": 23,
+	  "name": "5 a 6 anos"
+	},
+	{
+	  "code": 24,
+	  "name": "6 anos ou mais"
+	}
+  ]

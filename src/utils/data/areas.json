@@ -1,0 +1,34 @@
+[
+	{
+	  "code": 1,
+	  "name": "Ciências Agrárias"
+	},
+	{
+	  "code": 2,
+	  "name": "Ciências Biológicas"
+	},
+	{
+	  "code": 3,
+	  "name": "Ciências da Saúde"
+	},
+	{
+	  "code": 4,
+	  "name": "Ciências Exatas"
+	},
+	{
+	  "code": 5,
+	  "name": "Engenharias"
+	},
+	{
+	  "code": 6,
+	  "name": "Ciências Humanas"
+	},
+	{
+	  "code": 7,
+	  "name": "Ciências Sociais Aplicadas"
+	},
+	{
+	  "code": 8,
+	  "name": "Linguística, Letras e Artes"
+	}
+  ]

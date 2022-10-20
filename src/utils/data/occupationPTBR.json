@@ -1,0 +1,510 @@
+[
+    {
+      "code": 1,
+      "name": "Agronomia"
+    },
+    {
+      "code": 1,
+      "name": "Biotecnologia"
+    },
+    {
+      "code": 1,
+      "name": "Ecologia"
+    },
+    {
+      "code": 1,
+      "name": "Engenharia Ambiental"
+    },
+    {
+      "code": 1,
+      "name": "Engenharia de Pesca"
+    },
+    {
+      "code": 1,
+      "name": "Engenharia Hídrica"
+    },
+    {
+      "code": 1,
+      "name": "Gestão Ambiental"
+    },
+    {
+      "code": 1,
+      "name": "Geologia"
+    },
+    {
+      "code": 1,
+      "name": "Oceanografia"
+    },
+    {
+      "code": 1,
+      "name": "Engenharia Agrícola"
+    },
+    {
+      "code": 1,
+      "name": "Engenharia de Energia"
+    },
+    {
+      "code": 1,
+      "name": "Engenharia Florestal"
+    },
+    {
+      "code": 1,
+      "name": "Medicina Veterinária"
+    },
+    {
+      "code": 1,
+      "name": "Meteorologia"
+    },
+    {
+      "code": 1,
+      "name": "Zootecnia"
+    },
+    {
+      "code": 2,
+      "name": "Bioquímica"
+    },
+    {
+      "code": 2,
+      "name": "Biofísica"
+    },
+    {
+      "code": 2,
+      "name": "Biomedicina"
+    },
+    {
+      "code": 2,
+      "name": "Ciências Biológicas"
+    },
+    {
+      "code": 3,
+      "name": "Educação Física"
+    },
+    {
+      "code": 3,
+      "name": "Enfermagem"
+    },
+    {
+      "code": 3,
+      "name": "Estética"
+    },
+    {
+      "code": 3,
+      "name": "Farmácia"
+    },
+    {
+      "code": 3,
+      "name": "Fisioterapia"
+    },
+    {
+      "code": 3,
+      "name": "Fonoaudiologia"
+    },
+    {
+      "code": 3,
+      "name": "Gerontologia"
+    },
+    {
+      "code": 3,
+      "name": "Medicina"
+    },
+    {
+      "code": 3,
+      "name": "Musicoterapia"
+    },
+    {
+      "code": 3,
+      "name": "Nutrição"
+    },
+    {
+      "code": 3,
+      "name": "Obstetrícia"
+    },
+    {
+      "code": 3,
+      "name": "Odontologia"
+    },
+    {
+      "code": 3,
+      "name": "Quiropraxia"
+    },
+    {
+      "code": 3,
+      "name": "Radiologia"
+    },
+    {
+      "code": 3,
+      "name": "Saúde Coletiva"
+    },
+    {
+      "code": 3,
+      "name": "Terapia Ocupacional"
+    },
+    {
+      "code": 4,
+      "name": "Análise e Desenvolvimento de Sistemas"
+    },
+    {
+      "code": 4,
+      "name": "Astronomia"
+    },
+    {
+      "code": 4,
+      "name": "Ciência da Computação"
+    },
+    {
+      "code": 4,
+      "name": "Estatística"
+    },
+    {
+      "code": 4,
+      "name": "Física"
+    },
+    {
+      "code": 4,
+      "name": "Geofísica"
+    },
+    {
+      "code": 4,
+      "name": "Geologia"
+    },
+    {
+      "code": 4,
+      "name": "Informática Biomédica"
+    },
+    {
+      "code": 4,
+      "name": "Matemática"
+    },
+    {
+      "code": 4,
+      "name": "Meteorologia"
+    },
+    {
+      "code": 4,
+      "name": "Nanotecnologia"
+    },
+    {
+      "code": 4,
+      "name": "Oceanografia"
+    },
+    {
+      "code": 4,
+      "name": "Química"
+    },
+    {
+      "code": 4,
+      "name": "Sistemas de Informação"
+    },
+    {
+      "code": 5,
+      "name": "Engenharia Aeronáutica"
+    },
+    {
+      "code": 5,
+      "name": "Engenharia Agrícola"
+    },
+    {
+      "code": 5,
+      "name": "Engenharia Agronômica"
+    },
+    {
+      "code": 5,
+      "name": "Engenharia de Agrimensura e Cartográfica"
+    },
+    {
+      "code": 5,
+      "name": "Engenharia de Alimentos"
+    },
+    {
+      "code": 5,
+      "name": "Engenharia Ambiental e Sanitária"
+    },
+    {
+      "code": 5,
+      "name": "Engenharia Biomédica"
+    },
+    {
+      "code": 5,
+      "name": "Engenharia de Bioprocessos"
+    },
+    {
+      "code": 5,
+      "name": "Engenharia Civil"
+    },
+    {
+      "code": 5,
+      "name": "Engenharia de Computação"
+    },
+    {
+      "code": 5,
+      "name": "Engenharia de Controle e Automação"
+    },
+    {
+      "code": 5,
+      "name": "Engenharia Elétrica"
+    },
+    {
+      "code": 5,
+      "name": "Engenharia Eletrônica"
+    },
+    {
+      "code": 5,
+      "name": "Engenharia de Energia"
+    },
+    {
+      "code": 5,
+      "name": "Engenharia Florestal"
+    },
+    {
+      "code": 5,
+      "name": "Engenharia de Fortificação e Construção"
+    },
+    {
+      "code": 5,
+      "name": "Engenharia Mecânica"
+    },
+    {
+      "code": 5,
+      "name": "Engenharia Mecânica e de Armamento"
+    },
+    {
+      "code": 5,
+      "name": "Engenharia de Materiais"
+    },
+    {
+      "code": 5,
+      "name": "Engenharia de Minas"
+    },
+    {
+      "code": 5,
+      "name": "Engenharia Metalúrgica"
+    },
+    {
+      "code": 5,
+      "name": "Engenharia Naval"
+    },
+    {
+      "code": 5,
+      "name": "Engenharia de Pesca"
+    },
+    {
+      "code": 5,
+      "name": "Engenharia de Produção"
+    },
+    {
+      "code": 5,
+      "name": "Engenharia de Petróleo"
+    },
+    {
+      "code": 5,
+      "name": "Engenharia Química"
+    },
+    {
+      "code": 5,
+      "name": "Engenharia de Software"
+    },
+    {
+      "code": 5,
+      "name": "Engenharia de Telecomunicações"
+    },
+    {
+      "code": 6,
+      "name": "Antropologia"
+    },
+    {
+      "code": 6,
+      "name": "Arqueologia"
+    },
+    {
+      "code": 6,
+      "name": "Ciência Política"
+    },
+    {
+      "code": 6,
+      "name": "Filosofia"
+    },
+    {
+      "code": 6,
+      "name": "Geografia"
+    },
+    {
+      "code": 6,
+      "name": "História"
+    },
+    {
+      "code": 6,
+      "name": "Psicologia"
+    },
+    {
+      "code": 6,
+      "name": "Sociologia"
+    },
+    {
+      "code": 6,
+      "name": "Teologia"
+    },
+    {
+      "code": 7,
+      "name": "Administração"
+    },
+    {
+      "code": 7,
+      "name": "Recursos Humanos"
+    },
+    {
+      "code": 7,
+      "name": "Arquivologia"
+    },
+    {
+      "code": 7,
+      "name": "Arquitetura e Urbanismo"
+    },
+    {
+      "code": 7,
+      "name": "Biblioteconomia"
+    },
+    {
+      "code": 7,
+      "name": "Ciências Contábeis"
+    },
+    {
+      "code": 7,
+      "name": "Direito"
+    },
+    {
+      "code": 7,
+      "name": "Economia"
+    },
+    {
+      "code": 7,
+      "name": "Educomunicação"
+    },
+    {
+      "code": 7,
+      "name": "Eventos"
+    },
+    {
+      "code": 7,
+      "name": "Jornalismo"
+    },
+    {
+      "code": 7,
+      "name": "Museologia"
+    },
+    {
+      "code": 7,
+      "name": "Pedagogia"
+    },
+    {
+      "code": 7,
+      "name": "Produção Cultural"
+    },
+    {
+      "code": 7,
+      "name": "Produção Editorial"
+    },
+    {
+      "code": 7,
+      "name": "Produção Multimídia"
+    },
+    {
+      "code": 7,
+      "name": "Publicidade e Propaganda"
+    },
+    {
+      "code": 7,
+      "name": "Rádio e TV"
+    },
+    {
+      "code": 7,
+      "name": "Relações Internacionais"
+    },
+    {
+      "code": 7,
+      "name": "Relações Públicas"
+    },
+    {
+      "code": 7,
+      "name": "Secretariado"
+    },
+    {
+      "code": 7,
+      "name": "Serviço Social"
+    },
+    {
+      "code": 7,
+      "name": "Turismo"
+    },
+    {
+      "code": 8,
+      "name": "Artes Cênicas"
+    },
+    {
+      "code": 8,
+      "name": "Artes Plásticas"
+    },
+    {
+      "code": 8,
+      "name": "Cinema"
+    },
+    {
+      "code": 8,
+      "name": "Dança"
+    },
+    {
+      "code": 8,
+      "name": "Design"
+    },
+    {
+      "code": 8,
+      "name": "Design de Games"
+    },
+    {
+      "code": 8,
+      "name": "Design Gráfico"
+    },
+    {
+      "code": 8,
+      "name": "Design de Moda"
+    },
+    {
+      "code": 8,
+      "name": "Design de Interiores"
+    },
+    {
+      "code": 8,
+      "name": "Design de Produto"
+    },
+    {
+      "code": 8,
+      "name": "Fotografia"
+    },
+    {
+      "code": 8,
+      "name": "História da Arte"
+    },
+    {
+      "code": 8,
+      "name": "Linguística"
+    },
+    {
+      "code": 8,
+      "name": "Letras"
+    },
+    {
+      "code": 8,
+      "name": "Moda"
+    },
+    {
+      "code": 8,
+      "name": "Música"
+    },
+    {
+      "code": 8,
+      "name": "Teatro"
+    },
+    {
+      "code": 8,
+      "name": "Tradução e Interpretação"
+    }
+]
