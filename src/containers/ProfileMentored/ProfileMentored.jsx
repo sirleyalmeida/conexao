@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate  } from "react-router-dom";
 import Button from '../../components/base/Button';
 import Input from '../../components/base/Input';
+import Select from '../../components/base/Select';
+import OccupationsJson from '../../utils/data/occupationPTBR.json';
+import EducationJson from '../../utils/data/educationLevel.json';
 import { fetchMentored, updateMentored } from '../../services/mentored';
 
 const RegisterInMentored = () => {
@@ -95,33 +98,36 @@ const RegisterInMentored = () => {
           disabled={userData.document ? true : false}   
           required
           />
-        <Input
-          label="Profissão"
-          placeholder=""
-          type="text"
+        <Select
+          label="Área Profissional"
+          name="profession"
+          options={OccupationsJson}
+          placeholder='Escolha sua área profissional'
           onChange= {(e) => setInputProfessionValue(e.target.value)}
           value={userData.profession ? userData.profession : inputProfessionValue}
           disabled={userData.profession ? true : false}   
           required 
-          />
-        <Input
+        />
+        <Select
           label="Escolaridade"
-          placeholder=""
-          type="text"
+          name="educationLevel"
+          options={EducationJson}
+          placeholder='Qual sua escolaridade'
           onChange= {(e) => setInputEducationValue(e.target.value)}
           value={userData.education ? userData.education : inputEducationValue}
           disabled={userData.education ? true : false} 
           required
-          />
-        <Input
+        />
+        <Select
           label="Área de Interesse"
-          placeholder=""
-          type="text"
+          name="interestArea"
+          options={OccupationsJson}
+          placeholder='Escolha sua área de interesse'
           onChange= {(e) => setInputInterestAreaValue(e.target.value)}
           value={userData.interestArea ? userData.interestArea : inputInterestAreaValue}
           disabled={userData.interestArea ? true : false} 
           required
-          />
+        />
         <Input
           label="Objetivo da mentoria"
           placeholder="Descreva seus objetivos com a mentoria"

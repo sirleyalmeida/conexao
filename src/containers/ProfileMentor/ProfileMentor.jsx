@@ -2,6 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate  } from "react-router-dom";
 import Button from '../../components/base/Button';
 import Input from '../../components/base/Input';
+import Select from '../../components/base/Select';
+import AreasJson from '../../utils/data/areas.json';
+import OccupationsJson from '../../utils/data/occupationPTBR.json';
+import EducationJson from '../../utils/data/educationLevel.json';
+import PracticeTimeJson from '../../utils/data/practiceTime.json';
 import { fetchMentor, updateMentor } from '../../services/mentor';
 
 const RegisterInMentor = () => {
@@ -14,7 +19,6 @@ const RegisterInMentor = () => {
   const [inputEducationValue, setInputEducationValue] = useState(userData.education ? userData.education : '');
   const [hasFilled, setHasFilled] = useState(false)
   let history = useNavigate ();
-
   const handleUpdateMentorData = async(e) => {
     e.preventDefault();
     const uuid = sessionStorage.getItem("logged");
@@ -45,6 +49,7 @@ const RegisterInMentor = () => {
       const uuid = sessionStorage.getItem("logged");
       const infos = await fetchMentor(uuid);
       setUserData(infos.data);
+      console.log('infos', infos.data)
       if(infos?.data.practiceArea) {
         setHasFilled(true)
       }
@@ -94,37 +99,41 @@ const RegisterInMentor = () => {
           disabled={userData.document ? true : false}   
           required       
         />
-        <Input
-          label="Profissão"
-          placeholder=""
-          type="text"
-          onChange = {(e) => setInputProfessionValue(e.target.value)}
-          value={userData.profession ? userData.profession : inputProfessionValue}
-          disabled={userData.profession ? true : false}   
-          required       
-        />
-        <Input
+        <Select
           label="Área Profissional"
-          placeholder=""
-          type="text"
+          name="interestArea"
+          options={AreasJson}
+          placeholder='Qual sua área profissional'
           onChange = {(e) => setInputPraticeAreaValue(e.target.value)}
           value={userData.practiceArea ? userData.practiceArea : inputPraticeAreaValue}
           disabled={userData.practiceArea ? true : false} 
           required
         />
-        <Input
+        <Select
+          label="Área Profissional"
+          name="profession"
+          options={OccupationsJson}
+          placeholder='Qual sua área de conhecimento'
+          onChange = {(e) => setInputProfessionValue(e.target.value)}
+          value={userData.profession ? userData.profession : inputProfessionValue}
+          disabled={userData.profession ? true : false}   
+          required    
+        />
+        <Select
           label="Tempo de Profissão"
-          placeholder=""
-          type="text"
+          name="practiceTime"
+          options={PracticeTimeJson}
+          placeholder='Tempo de atuação'
           onChange = {(e) => setInputPraticeTimeValue(e.target.value)}
           value={userData.practiceTime ? userData.practiceTime : inputPraticeTimeValue}
           disabled={userData.practiceTime ? true : false}
           required
         />
-        <Input
+        <Select
           label="Escolaridade"
-          placeholder=""
-          type="text"
+          name="educationLevel"
+          options={EducationJson}
+          placeholder='Qual sua escolaridade'
           onChange = {(e) => setInputEducationValue(e.target.value)}
           value={userData.education ? userData.education : inputEducationValue}
           disabled={userData.education ? true : false}

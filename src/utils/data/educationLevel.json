@@ -1,0 +1,30 @@
+[
+	{
+	  "code": 10,
+	  "name": "Ensino Fundamental"
+	},
+	{
+	  "code": 11,
+	  "name": "Ensino Médio"
+	},
+	{
+	  "code": 12,
+	  "name": "Superior Incompleto"
+	},
+	{
+	  "code": 13,
+	  "name": "Superior Completo"
+	},
+	{
+	  "code": 14,
+	  "name": "Pós-graduação"
+	},
+	{
+	  "code": 15,
+	  "name": "Mestrado"
+	},
+	{
+	  "code": 16,
+	  "name": "Doutorado"
+	}
+]

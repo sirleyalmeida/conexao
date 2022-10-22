@@ -51,4 +51,3 @@ export const updateMentor = ({name, email, password, age, document, profession, 
 	.catch(function (error) {
 		console.log(error);
 	});
-
