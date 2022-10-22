@@ -23,5 +23,5 @@ const Select = (props) => {
 		</label>
 	)
 }
+
 export default Select;
-			
