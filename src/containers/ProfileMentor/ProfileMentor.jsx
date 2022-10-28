@@ -19,6 +19,7 @@ const RegisterInMentor = () => {
   const [inputEducationValue, setInputEducationValue] = useState(userData.education ? userData.education : '');
   const [hasFilled, setHasFilled] = useState(false)
   let history = useNavigate ();
+  
   const handleUpdateMentorData = async(e) => {
     e.preventDefault();
     const uuid = sessionStorage.getItem("logged");

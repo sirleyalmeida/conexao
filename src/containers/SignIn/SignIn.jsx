@@ -5,40 +5,30 @@ import Input from '../../components/base/Input';
 import Image from '../../components/base/Image';
 import Cta from '../../components/base/Cta';
 import { SignInMentor } from '../../services/mentor';
-// import { createMentored } from '../../services/mentored';
+import { SignInMentored } from '../../services/mentored';
 
 const SignIn = () => {
   const [inputEmailValue, setInputEmailValue] = useState('');
   const [inputPasswordValue, setInputPasswordValue] = useState('');
   let history = useNavigate();
 
-  // useEffect(() => {
-  //   async function fetchData() {
-  //     try {
-  //       await fetch('x')
-  //         .then((res) => res.json())
-  //         .then(data => setMentorados(data.mentorados));
-  //     } catch (e) {
-  //         console.error(e);
-  //     }
-  // };
-  // fetchData();
-  
-  
-// }, []);
-
 const handleSignIn = async (e) => {
   e.preventDefault();
-  const response = await SignInMentor(inputEmailValue);
-  console.log(response)
-  if (response?.data.userType === 'mentor') {
-    sessionStorage.setItem("logged", response?.data.uuid);
-    sessionStorage.setItem("type", response?.data.userType);
+  const responseMentor = await SignInMentor(inputEmailValue);
+  const responseMentored = await SignInMentored(inputEmailValue);
+  if (responseMentor?.data.userType === 'mentor') {
+    sessionStorage.setItem("logged", responseMentor?.data.uuid);
+    sessionStorage.setItem("type", responseMentor?.data.userType);
     history('/feedback');
-  } else if (response?.data.userType === 'mentorado') {
-    sessionStorage.setItem("logged", response?.data.uuid);
-    sessionStorage.setItem("type", response?.data.userType);
-    history('/home');
+  } else if (responseMentored?.data.userType === 'mentored') {
+    sessionStorage.setItem("logged", responseMentored?.data.uuid);
+    sessionStorage.setItem("type", responseMentored?.data.userType);
+
+    if(responseMentored?.data?.mentor) {
+      alert('vc tem um match, aguarde o feedback')
+    } else {
+      history('/feedback');
+    }
   } else {
     alert('Dados incorretos! Tente novamente');
   }

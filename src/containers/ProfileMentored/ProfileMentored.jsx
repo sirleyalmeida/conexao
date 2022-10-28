@@ -33,35 +33,33 @@ const RegisterInMentored = () => {
       education:inputEducationValue,
       interestArea: inputInterestAreaValue,
       mentorshipGoal: inputMentorshipGoalValue,
-      mentorUuid: hasMentor,
+      feedback: userData.feedback,
       userType
     }
 
-    if(inputInterestAreaValue) {
-      const saved = await updateMentored(mentoredData, uuid);
-      if(saved.status === 200) {
-        history('/feedback');
-        setHasFilled(true)
-      }
-    }
-
-    history('/home');
-    if(hasMentor) {
-      alert('Você receberá um feedback em breve');
+  if(inputProfessionValue && inputInterestAreaValue && inputMentorshipGoalValue) {
+    const saved = await updateMentored(mentoredData, uuid);
+    if(saved.status === 200) {
+      history('/feedback');
+      setHasFilled(true)
     }
   }
+}
 
-  // useEffect(() => {
-  //   const fetchUserData = async() => {
-  //     const uuid = sessionStorage.getItem("logged");
-  //     const infos = await fetchMentored(uuid);
-  //     setUserData(infos?.data);
-  //     if(infos?.data.mentorshipGoal) {
-  //       setHasFilled(true)
-  //     }
-  //   }
-  //   fetchUserData();
-  // }, [])
+useEffect(() => {
+  const fetchUserData = async() => {
+    const uuid = sessionStorage.getItem("logged");
+    const infos = await fetchMentored(uuid);
+    setUserData(infos.data);
+
+    if(infos.data?.mentor) {
+      alert('vc tem um match, aguarde o feedback')
+    } else if (infos?.data?.feedback) {
+      setHasFilled(true)
+    }
+  }
+  fetchUserData();
+}, [])
   
 
   return (    
