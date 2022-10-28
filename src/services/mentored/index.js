@@ -14,6 +14,17 @@ export const createMentored = (name, email, password, userType ) =>
 		console.log(error);
 	});
 
+export const SignInMentored = ( email) => 
+	axios.get(`http://localhost:3333/mentored-email/${email}`, {
+		email: email
+	})
+	.then(function (response) {
+		return response
+	})
+	.catch(function (error) {
+		console.log(error);
+	});
+
 export const fetchMentored = (uuid) => 
 	axios.get(`http://localhost:3333/mentored/${uuid}`)
 	.then(function (response) {

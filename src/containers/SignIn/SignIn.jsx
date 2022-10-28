@@ -4,35 +4,45 @@ import Button from '../../components/base/Button';
 import Input from '../../components/base/Input';
 import Image from '../../components/base/Image';
 import Cta from '../../components/base/Cta';
+import { SignInMentor } from '../../services/mentor';
+// import { createMentored } from '../../services/mentored';
 
 const SignIn = () => {
   const [inputEmailValue, setInputEmailValue] = useState('');
   const [inputPasswordValue, setInputPasswordValue] = useState('');
-  const [mentorados, setMentorados] = useState([]);
   let history = useNavigate();
 
-  useEffect(() => {
-    async function fetchData() {
-      // try {
-      //   await fetch('x')
-      //     .then((res) => res.json())
-      //     .then(data => setMentorados(data.mentorados));
-      // } catch (e) {
-      //     console.error(e);
-      // }
-  };
-  fetchData();
-}, []);
+  // useEffect(() => {
+  //   async function fetchData() {
+  //     try {
+  //       await fetch('x')
+  //         .then((res) => res.json())
+  //         .then(data => setMentorados(data.mentorados));
+  //     } catch (e) {
+  //         console.error(e);
+  //     }
+  // };
+  // fetchData();
+  
+  
+// }, []);
 
-  const handleSignIn = (e) => {
-    e.preventDefault();
-      if((inputEmailValue === mentorados[0].contact.email && Number(inputPasswordValue) === mentorados[0].password) ||
-          (inputEmailValue === mentorados[1].contact.email && Number(inputPasswordValue) === mentorados[1].password)) {
-        history('/home');
-      } else {
-        alert('Dados incorretos!');
-      }
+const handleSignIn = async (e) => {
+  e.preventDefault();
+  const response = await SignInMentor(inputEmailValue);
+  console.log(response)
+  if (response?.data.userType === 'mentor') {
+    sessionStorage.setItem("logged", response?.data.uuid);
+    sessionStorage.setItem("type", response?.data.userType);
+    history('/feedback');
+  } else if (response?.data.userType === 'mentorado') {
+    sessionStorage.setItem("logged", response?.data.uuid);
+    sessionStorage.setItem("type", response?.data.userType);
+    history('/home');
+  } else {
+    alert('Dados incorretos! Tente novamente');
   }
+}
   
   return (    
     <div className="sign__group">

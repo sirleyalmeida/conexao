@@ -14,6 +14,19 @@ export const createMentor = (name, email, password, userType) =>
 		console.log(error);
 	});
 
+	
+export const SignInMentor = ( email) => 
+	axios.get(`http://localhost:3333/mentor-email/${email}`, {
+		email: email
+	})
+	.then(function (response) {
+		return response
+	})
+	.catch(function (error) {
+		console.log(error);
+	});
+
+
 export const listMatches = () => 
 	axios.get('https://jsonplaceholder.typicode.com/posts')
 	.then(function (response) {
