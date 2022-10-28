@@ -52,10 +52,8 @@ useEffect(() => {
     const infos = await fetchMentored(uuid);
     setUserData(infos.data);
 
-    if(infos.data?.mentor) {
-      alert('vc tem um match, aguarde o feedback')
-    } else if (infos?.data?.feedback) {
-      setHasFilled(true)
+    if(infos?.data?.feedback) {
+      setHasFilled(true);
     }
   }
   fetchUserData();
