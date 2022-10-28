@@ -15,7 +15,8 @@ const RegisterInMentored = () => {
   const [inputInterestAreaValue, setInputInterestAreaValue] = useState(userData.interestArea ? userData.interestArea : '');
   const [inputMentorshipGoalValue, setInputMentorshipGoalValue] = useState(userData.mentorshipGoal ? userData.mentorshipGoal : '');
   const [inputEducationValue, setInputEducationValue] = useState(userData.education ? userData.education : '');
-  const [hasFilled, setHasFilled] = useState(false)
+  const [hasFilled, setHasFilled] = useState(false);
+  const [hasMentor, setHasMentor] = useState(false)
   let history = useNavigate ();
 
   const handleUpdateMentoredData = async(e) => {
@@ -30,30 +31,33 @@ const RegisterInMentored = () => {
       document:inputCPFValue, 
       profession: inputProfessionValue, 
       education:inputEducationValue,
-      interestArea: inputInterestAreaValue, 
+      interestArea: inputInterestAreaValue,
       mentorshipGoal: inputMentorshipGoalValue,
+      feedback: userData.feedback,
       userType
     }
-    if(inputProfessionValue && inputInterestAreaValue && inputMentorshipGoalValue) {
-      const saved = await updateMentored(mentoredData, uuid);
-      if(saved.status === 200) {
-        history('/feedback');
-        setHasFilled(true)
-      }
+
+  if(inputProfessionValue && inputInterestAreaValue && inputMentorshipGoalValue) {
+    const saved = await updateMentored(mentoredData, uuid);
+    if(saved.status === 200) {
+      history('/feedback');
+      setHasFilled(true)
     }
   }
+}
 
-  useEffect(() => {
-    const fetchUserData = async() => {
-      const uuid = sessionStorage.getItem("logged");
-      const infos = await fetchMentored(uuid);
-      setUserData(infos.data);
-      if(infos?.data.mentorshipGoal) {
-        setHasFilled(true)
-      }
+useEffect(() => {
+  const fetchUserData = async() => {
+    const uuid = sessionStorage.getItem("logged");
+    const infos = await fetchMentored(uuid);
+    setUserData(infos.data);
+
+    if(infos?.data?.feedback) {
+      setHasFilled(true);
     }
-    fetchUserData();
-  }, [])
+  }
+  fetchUserData();
+}, [])
   
 
   return (    

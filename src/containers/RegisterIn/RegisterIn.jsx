@@ -20,9 +20,9 @@ const RegisterIn = () => {
       if(inputNameValue && inputEmailValue && inputPasswordValue && inputUserType) {
         let hasResponse = ''
         if(inputUserType === 'mentor') {
-          hasResponse = await createMentor(inputNameValue, inputEmailValue,inputPasswordValue, "mentor");
+          hasResponse = await createMentor(inputNameValue, inputEmailValue, inputPasswordValue, "mentor");
         } else {
-          hasResponse = await createMentored(inputNameValue, inputEmailValue,inputPasswordValue, "mentored");
+          hasResponse = await createMentored(inputNameValue, inputEmailValue, inputPasswordValue, "mentored");
         }
         sessionStorage.setItem("logged", hasResponse.data.uuid);
         sessionStorage.setItem("type", hasResponse.data.userType);

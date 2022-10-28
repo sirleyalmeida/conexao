@@ -1,38 +1,48 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate  } from "react-router-dom";
 import Button from '../../components/base/Button';
 import Input from '../../components/base/Input';
 import Image from '../../components/base/Image';
+import Radio from '../../components/base/Radio';
 import Cta from '../../components/base/Cta';
+import { SignInMentor } from '../../services/mentor';
+import { SignInMentored } from '../../services/mentored';
 
 const SignIn = () => {
   const [inputEmailValue, setInputEmailValue] = useState('');
   const [inputPasswordValue, setInputPasswordValue] = useState('');
-  const [mentorados, setMentorados] = useState([]);
+  const [inputUserType, setInputUserTypeValue] = useState('');
   let history = useNavigate();
 
-  useEffect(() => {
-    async function fetchData() {
-      // try {
-      //   await fetch('x')
-      //     .then((res) => res.json())
-      //     .then(data => setMentorados(data.mentorados));
-      // } catch (e) {
-      //     console.error(e);
-      // }
-  };
-  fetchData();
-}, []);
+const handleSignIn = async (e) => {
+  e.preventDefault();
+  if (inputUserType === 'mentor') {
+    const responseMentor = await SignInMentor(inputEmailValue);
+    sessionStorage.setItem("logged", responseMentor?.data.uuid);
+    sessionStorage.setItem("type", responseMentor?.data.userType);
+    history('/feedback');
 
-  const handleSignIn = (e) => {
-    e.preventDefault();
-      if((inputEmailValue === mentorados[0].contact.email && Number(inputPasswordValue) === mentorados[0].password) ||
-          (inputEmailValue === mentorados[1].contact.email && Number(inputPasswordValue) === mentorados[1].password)) {
-        history('/home');
-      } else {
-        alert('Dados incorretos!');
-      }
+    if(responseMentor?.data?.mentoreds.length > 0) {
+      alert('vc tem mentorade(s), dê seu feedback');
+    }
+    history('/feedback');
+
+  } else if (inputUserType === 'mentorado') {
+    const responseMentored = await SignInMentored(inputEmailValue);
+    sessionStorage.setItem("logged", responseMentored?.data.uuid);
+    sessionStorage.setItem("type", responseMentored?.data.userType);
+
+    if(responseMentored?.data?.mentor) {
+      alert('vc tem um mentor, aguarde o feedback');
+    }
+    history('/feedback');
+
+  } else {
+    alert('Dados incorretos! Tente novamente');
+    sessionStorage.removeItem("logged");
+    sessionStorage.removeItem("type");
   }
+}
   
   return (    
     <div className="sign__group">
@@ -55,6 +65,21 @@ const SignIn = () => {
           name="senha"
           onChange= {(e) => setInputPasswordValue(e.target.value)}
         />
+         <div className="sign__form__radio">
+          <Radio
+              label="Mentor"
+              id="mentor"
+              name="user_type"
+              onChange= {(e) => setInputUserTypeValue(e.target.value)}
+              required
+            />
+          <Radio
+            label="Mentorado"
+            id="mentored"
+            name="user_type"
+            onChange= {(e) => setInputUserTypeValue(e.target.value)}
+          />
+        </div>
         <Button 
           type="submit"
           classNameBtn="btn__primary"
