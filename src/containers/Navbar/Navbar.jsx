@@ -4,6 +4,11 @@ import Cta from '../../components/base/Cta';
 
 
 const Navbar = () => {
+  function cleanSession() {
+    sessionStorage.removeItem("logged");
+    sessionStorage.removeItem("type");
+  }
+
   return (
     <>
     <nav className="navbar">
@@ -28,6 +33,7 @@ const Navbar = () => {
           />
           <Cta 
             href="/"
+            onClick={()=> cleanSession()}
             icon="fas fa-door-open"
             text="Sair"
             classNameCta="cta__navbar"
