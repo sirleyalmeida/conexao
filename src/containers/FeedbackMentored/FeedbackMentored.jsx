@@ -21,7 +21,10 @@ const FeedbackMentored = () => {
     return(
         <div className="feedback__item">
             <h3>Feedback do seu mentor:</h3>
-            <p>{feedbackMentor.feedBacks}</p>
+            <p><strong>{feedbackMentor.feedBacks}</strong></p>
+            <hr></hr>
+            <p>{`Profissional com atuação em: ${feedbackMentor.mentor.profession}`}</p>
+            <p>{`Tempo de profissão: ${feedbackMentor.mentor.practiceTime}`}</p>
         </div>
     );
 }
