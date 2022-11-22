@@ -5,15 +5,14 @@ import { fetchMentored } from '../../services/mentored';
 const FeedbackMentored = () => {
     const [feedbackMentor, setFeedbackMentor] = useState({});
     const uuid = sessionStorage.getItem("logged");
-
-    const fetchUserData = async() => {
-        const user = await fetchMentored(uuid);
-        setFeedbackMentor(user.data);
-    }
     
     useEffect(() => {
+        const fetchUserData = async() => {
+            const user = await fetchMentored(uuid);
+            setFeedbackMentor(user.data);
+        }
         fetchUserData();
-    }, []);
+    }, [uuid]);
 
     if(!feedbackMentor.feedBacks){
         return <p className="feedback__wait">Aguardando feedback de um mentor.</p>

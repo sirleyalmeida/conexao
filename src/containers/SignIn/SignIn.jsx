@@ -10,7 +10,7 @@ import { SignInMentored } from '../../services/mentored';
 
 const SignIn = () => {
   const [inputEmailValue, setInputEmailValue] = useState('');
-  const [inputPasswordValue, setInputPasswordValue] = useState('');
+  const [setInputPasswordValue] = useState('');
   const [inputUserType, setInputUserTypeValue] = useState('');
   let history = useNavigate();
 
@@ -23,7 +23,7 @@ const handleSignIn = async (e) => {
     history('/feedback');
 
     if(responseMentor?.data?.mentoreds.length > 0) {
-      alert('vc tem mentorade(s), dê seu feedback');
+      alert('você tem mentorade(s), dê seu feedback');
     }
     history('/feedback');
 
@@ -33,7 +33,7 @@ const handleSignIn = async (e) => {
     sessionStorage.setItem("type", responseMentored?.data.userType);
 
     if(responseMentored?.data?.mentor) {
-      alert('vc tem um mentor, aguarde o feedback');
+      alert('você tem um mentor, aguarde o feedback');
     }
     history('/feedback');
 

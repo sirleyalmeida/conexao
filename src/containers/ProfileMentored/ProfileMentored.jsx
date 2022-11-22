@@ -16,7 +16,6 @@ const RegisterInMentored = () => {
   const [inputMentorshipGoalValue, setInputMentorshipGoalValue] = useState(userData.mentorshipGoal ? userData.mentorshipGoal : '');
   const [inputEducationValue, setInputEducationValue] = useState(userData.education ? userData.education : '');
   const [hasFilled, setHasFilled] = useState(false);
-  const [hasMentor, setHasMentor] = useState(false)
   let history = useNavigate ();
 
   const handleUpdateMentoredData = async(e) => {

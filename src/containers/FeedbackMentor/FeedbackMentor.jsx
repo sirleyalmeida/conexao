@@ -11,6 +11,7 @@ const FeedbackMentor = () => {
   const [activeIndex, setActiveIndex] = useState(null);
   
   const uuid = sessionStorage.getItem("logged");
+
   const handleMentorship = (e, index) => {
     e.preventDefault();
     setHasReplaied(!hasReplied);
@@ -27,14 +28,13 @@ const FeedbackMentor = () => {
     setHasReplaied(true);
   }
   
-  const fetchUserData = async() => {
-    const user = await fetchMentor(uuid);
-    setMentoredsList(user.data.mentoreds);
-  }
-  
   useEffect(() => {
+    const fetchUserData = async() => {
+      const user = await fetchMentor(uuid);
+      setMentoredsList(user.data.mentoreds);
+    }
     fetchUserData();
-  }, [])
+  }, [uuid])
   
   if(!mentoredsList){
     return <p className="feedback__wait">Ainda não existem mentorados para mentorar.</p>
