@@ -55,7 +55,7 @@ function FeedbackMentor() {
                 text="Mentorar"
                 onClick={(e) => handleOpenChat(e, index)} />
               :
-              <p>Sua mentoria: <strong>{item.feedBacks}</strong></p>}
+              <p>Sua mentoria: <strong>{feedbackValue ? feedbackValue : item.feedBacks}</strong></p>}
             {!hasSubmited && activeIndex === index &&
               <>
                 <Input
