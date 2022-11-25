@@ -37,7 +37,7 @@ Projeto final do Curso de Análise e Desenvolvimento de Sistemas - Impacta
 
 * React
 * NodeJs
-* PostgreSQL *à partir do dia 29/11 o funcionamento do heroku-postgresql pode ser comprometido dado a plataforma se tornar paga*
+* PostgreSQL *à partir do dia 28/11 o funcionamento do heroku-postgresql pode ser comprometido dado a plataforma se tornar paga*
 * Sequelize
 
 ## Organização/Planejamento
