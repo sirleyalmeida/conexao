@@ -54,3 +54,14 @@ export const updateMentored = ({ name, email, password, age, document, professio
 	.catch(function (error) {
 		console.log(error);
 	});
+
+export const createFeedback = (uuid, feedback) => 
+	axios.post(`http://localhost:3333/mentored/${uuid}`, {
+		feedback: feedback,
+	})
+	.then(function (response) {
+		return response
+	})
+	.catch(function (error) {
+		console.log(error);
+	});

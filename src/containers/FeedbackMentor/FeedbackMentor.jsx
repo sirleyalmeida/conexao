@@ -1,74 +1,78 @@
 import React, { useState, useEffect} from 'react';
 import Button from '../../components/base/Button';
-import { listMatches } from '../../services/mentor';
 import Input from '../../components/base/Input';
+import { fetchMentor } from '../../services/mentor';
+import { createFeedback } from '../../services/mentored';
 
-const FeedbackMentor = () => {
-  const [matchesList, setMatchesList] = useState([]);
-  const [mentorshipValue, setMentorshipValue] = useState('');
-  const [hasResponse, setHasResponse] = useState(false);
+function FeedbackMentor() {
+  const [mentoredsList, setMentoredsList] = useState();
+  const [feedbackValue, setFeedbackValue] = useState('');
+  const [hasSubmited, setHasSubmited] = useState(false);
   const [activeIndex, setActiveIndex] = useState(null);
-  
-  const handleMentorship = (e, index) => {
+
+  const uuid = sessionStorage.getItem("logged");
+
+  const handleOpenChat = (e, index) => {
     e.preventDefault();
-    setHasResponse(!hasResponse);
-    if (activeIndex) {
+    if (activeIndex !== null) {
       setActiveIndex(null);
     } else {
       setActiveIndex(index);
     }
-  }
+  };
 
-  const handleSubmitMentorship = (e) => {
+  const handleSubmitMentorship = async (e, uuidMentored) => {
     e.preventDefault();
-    console.log('do stg with', mentorshipValue)
-  }
+    await createFeedback(uuidMentored, feedbackValue);
+    setHasSubmited(true);
+  };
 
   useEffect(() => {
-    const fetchMatches = async() => {
-      const matches = await listMatches();
-      if (matches.data.length > 0) setMatchesList(matches.data);
-      
+    const fetchUserData = async() => {
+      const user = await fetchMentor(uuid);
+      setMentoredsList(user.data.mentoreds);
     }
-    fetchMatches();
-  }, [])
-  
-  return (    
+    fetchUserData();
+  }, [uuid])
+
+  if (!mentoredsList?.length) {
+    return <p className="feedback__wait">Ainda não existem mentorados para mentorar.</p>;
+  }
+
+  return (
     <>
-      {matchesList.length === 0 ? 
-        <p className="feedback__wait">Não existem mentorados ainda para sua área de atuação</p>
-        :
-        matchesList?.map((item, index) => {
-          return (
-            <form key={item.id} className="feedback__item">
-              <h3>{`Solicitação ${item.id}`}</h3>
-              <p>{item.body}</p>
+      {mentoredsList?.map((item, index) => {
+        return (
+          <form key={index} className="feedback__item">
+            <h3>{`Solicitação ${index + 1}`}</h3>
+            <p>{`Área de atuação: ${item.profession}`}</p>
+            <p>{`Área de interesse: ${item.interestArea}`}</p>
+            <p>Objetivo: <strong>{item.mentorshipGoal}</strong></p>
+            <hr></hr>
+            {!hasSubmited ?
               <Button
                 classNameBtn="btn__primary--closer"
                 text="Mentorar"
-                onClick={(e) => handleMentorship(e, index)}
-              />
-              {hasResponse && activeIndex === index &&
-                <>
-                  <Input
-                      placeholder="Inicie a mentoria"
-                      onChange= {(e) => setMentorshipValue(e.target.value)}
-                      textarea
-                    />
-                  <Button 
-                    type="submit"
-                    classNameBtn="btn__tertiary"
-                    text="Enviar para mentorado"
-                    onClick={(e) => handleSubmitMentorship(e)}
-                  />
-                </>
-              }
-            </form>
-          );
-        })
-      }
+                onClick={(e) => handleOpenChat(e, index)} />
+              :
+              <p>Sua mentoria: <strong>{feedbackValue ? feedbackValue : item.feedBacks}</strong></p>}
+            {!hasSubmited && activeIndex === index &&
+              <>
+                <Input
+                  placeholder="Inicie a mentoria"
+                  onChange={(e) => setFeedbackValue(e.target.value)}
+                  textarea />
+                <Button
+                  type="submit"
+                  classNameBtn="btn__tertiary"
+                  text="Enviar para mentorado"
+                  onClick={(e) => handleSubmitMentorship(e, item.uuid)} />
+              </>}
+          </form>
+        );
+      })}
     </>
-  )
+  );
 }
-
-export default FeedbackMentor;
+    
+    export default FeedbackMentor;
